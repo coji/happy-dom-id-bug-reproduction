@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      #console {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: 1rem;
+        background-color: silver;
+        padding: 0.5rem;
+        border: 1px solid gray;
+        border-radius: 0.5rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="--test--">test</div>
+    <button id="submit">Do Test</button>
+    <div id="console">
+      <div>getElementById('#--test--')</div>
+      <div id="result1"></div>
+      <div>querySelector('--test--')</div>
+      <div id="result2"></div>
+    </div>
+  </body>
+
+  <script>
+    window.addEventListener("load", () => {
+      const button = document.getElementById("submit");
+
+      button.addEventListener("click", () => {
+        const divByGetElementById = document.getElementById("--test--");
+        const divByQuerySelector = document.querySelector("#--test--");
+        document.getElementById("result1").innerText =
+          divByGetElementById?.outerHTML ?? "Not found";
+        document.getElementById("result2").innerText =
+          divByQuerySelector?.outerHTML ?? "Not found";
+      });
+    });
+  </script>
+</html>
